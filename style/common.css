@@ -1,0 +1,612 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 초기화 */
+* {
+    box-sizing: border-box;
+}
+body, h1, h2, h3, ul, li, p, a, dt, dd  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+small {
+    font-weight: normal;
+}
+.hidden {
+    display: none;
+}
+
+/* 헤더 */
+#headerWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #F20;
+    box-shadow: 0 2px 50px #00000030;
+    z-index: 99;
+}
+#header {
+    margin: 0 auto;
+    width: 1200px;
+    height: 80px;
+    display: flex;
+    justify-content: right;
+}
+#header h1 {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 168px;
+    height: 80px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(../images/top_logo_light.png) no-repeat;
+}
+
+/* GNB */
+#gnb {
+    position: relative;
+    width: 778px;
+    margin: 0 auto;
+}
+#gnbList {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+#gnbList > li {
+    position: relative;
+    text-transform: uppercase;
+}
+#gnbList > li > a {
+    font-family: 'GmarketSansMedium';
+    /* display: block; */
+    /* line-height: 80px; */
+    font-weight: 300;
+    line-height: 80px;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+/* LNB */
+.lnb {
+    display: none;
+    position: absolute;
+    width: 200px;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #f20;
+    border-top: 0;
+    padding: 10px 10px;
+}
+#gnbList > li:hover .lnb {
+    display: block;
+}
+.lnb > li {
+    position: relative;
+    text-align: center;
+}
+.lnb > li > a {
+    display: block;
+    line-height: 40px;
+}
+
+/* SNB */
+.snb {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    top: 10px;
+    left: 90%;
+    background: #fff;
+    border: 1px solid #f20;
+    padding: 10px 10px;
+    text-align: left;
+}
+.lnb > li:hover a {
+    color: #f00;
+}
+.lnb > li:hover .snb {
+    display: block;
+}
+.snb > li > a {
+    display: block;
+    line-height: 40px;
+}
+
+/* 브랜드 슬로건 */
+#brands {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#slBrands {
+    width: 400%;
+    display: flex;
+}
+.slogan {
+    width: 100%;
+    height: 100vh;
+    margin: 250px auto;
+}
+.slogan:nth-of-type(2) {
+    margin-top: 130px;
+}
+.slogan > div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.slogan > div > img {
+    display: block;
+}
+.slogan > div > a {
+    font-family: 'GmarketSansMedium';
+    width: 170px;
+    margin-top: 70px; 
+    font-size: 18px;
+    color: #f20;
+    letter-spacing: -2px;
+    background: url(../images/redAdvance.png) no-repeat right / contain;
+}
+.slogan:not(.slogan:first-of-type) > div > a {
+    width: 150px;
+}
+#brands > a {
+    display: block;
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    top: 45%;
+}
+#brands > a.prevSl {
+    left: 7%;
+    background: url(../images/prev.png) no-repeat center / contain;
+}
+#brands > a.nextSl {
+    right: 7%;
+    background: url(../images/next.png) no-repeat center / contain;
+}
+
+/* CJ더마켓, Nature to Nature, Nature to Table */
+#cardSlide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+#cardSlide > ul {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding: 80px 0 120px;
+}
+.card {
+    height: 700px;
+}
+.card > div {
+    display: flex;
+    margin: 0 105px;
+    width: 1000px;
+    height: 700px;
+    justify-content: space-between;
+}
+.leftCard:first-of-type {
+    padding: 200px 0;
+}
+.card:nth-of-type(2) > div > .leftCard, .card:nth-of-type(3) > div > .leftCard {
+    padding: 150px 0;
+}
+.leftCard > dl > dt {
+    position: relative;
+    font-size: 74px;
+    letter-spacing: -5px;
+}
+.leftCard > dl > dd {
+    font-size: 30px;
+    letter-spacing: -3px;
+    padding: 20px 0 60px;
+    font-weight: 300;
+}
+.card.card:nth-of-type(2) > div > .leftCard > dl > dd, .card.card:nth-of-type(3) > div > .leftCard > dl > dd {
+    padding-top: 80px;
+}
+span:last-of-type {
+    position: absolute;
+    width: 300px;
+    top: 60px;
+    left: 160px;
+}
+.rightCard {
+    width: 500px;
+    height: 700px;
+    border-radius: 50px;
+    box-shadow: 0 5px 5px #999;
+}
+.card:nth-of-type(1) > div > .rightCard {
+    background: url(../images/card_themarket.jpg) no-repeat center / cover;
+}
+.card:nth-of-type(2) > div > .rightCard {
+    background: url(../images/card_naturetotable.jpg) no-repeat center / cover;
+}
+.card:nth-of-type(3) > div > .rightCard {
+    background: url(../images/card_naturetonature.jpg) no-repeat center / cover;
+}
+#cardSlide > a {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    top: 40%;
+}
+.prevBtn {
+    left: 15%;
+    background: url(../images/prev.png) no-repeat center / contain;
+}
+.nextBtn {
+    right: 15%;
+    background: url(../images/next.png) no-repeat center / contain;
+}
+
+/* 글로벌 현황, 연혁 */
+#aboutUs {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+}
+#gbS {
+    margin: 0 auto;
+    width: 1000px;
+    height: 50vh;
+    text-align: center;
+}
+#gbS > h3 {
+    padding-top: 84px;
+    font-family: 'GmarketSansMedium';
+    color: #f20;
+    font-size: 108px;
+    font-weight: 100;
+    letter-spacing: -5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#gbS > p {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+#gbS > a {
+    padding-top: 20px;
+    display: block;
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+#history {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    width: 1000px;
+    height: 50vh;
+    overflow: hidden;
+}
+#history > h3 {
+    position: absolute;
+    top: 100px;
+    right: 220px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+#history > div {
+    position: absolute;
+    bottom: 130px;
+    left: 320px;
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#history > div > a {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background: #222;
+}
+#history > div > a:nth-of-type(1) {
+    width: 10px;
+    height: 10px;
+    background: #f20;
+}
+#history > ul {
+    display: flex;
+    width: 3000px;
+}
+#history > ul > li {
+    width: 1000px;
+    display: flex; 
+    justify-content: right;
+    align-items: center;
+}
+#history > ul > li > dl {
+    width: 350px;
+}
+#history > ul > li > dl > dt {
+    font-family: 'GmarketSansMedium';
+    font-size: 54px;
+}
+#history > ul > li > dl > dd {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -3px;
+}
+.ddImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 650px;
+    height: 50vh;
+}
+.ddImg img {
+    position: absolute;
+    top: calc(50% - 150px);
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+#history1953 img{
+    left: 50px;
+    z-index: 3;
+}
+#history1990 img {
+    left: 200px;
+    z-index: 2;
+    filter: grayscale(100%);
+}
+#history2010 img {
+    left: 350px;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+
+/* CJ블로썸파크, CJ블로썸캠퍼스, 지속가능경영 */
+#innovation {
+    position: relative;
+    width: 1420px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#innoList {
+    width: 7100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#innoList > li {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 1420px;
+}
+#innoList > li > p {
+    text-align: right;
+    font-size: 74px;
+    font-weight: 200;
+    letter-spacing: -7px;
+    margin-top: 100px;
+}
+.innoBtn {
+    display: flex;
+    margin-top: 40px;
+}
+.innoBtn a {
+    display: block;
+    width: 130px;
+    margin: 0 20px;
+    text-transform: uppercase;
+}
+.innoBtn:not(#innoList > li:nth-of-type(1) div.innoBtn, #innoList > li:nth-of-type(2) div.innoBtn) a:first-child {
+    width: 160px;
+}
+.innoBtn:not(#innoList > li:nth-of-type(1) div.innoBtn, #innoList > li:nth-of-type(2) div.innoBtn) a:last-child {
+    width: 150px;
+}
+.innoBtn a:first-child {
+    background: url(../images/Advance.png) no-repeat right / contain;
+}
+.innoBtn a:last-child {
+    color: #f20;
+    background: url(../images/redAdvance.png) no-repeat right / contain;
+}
+.imgWrap {
+    width: 555px;
+    height: 595px;
+    object-fit: cover;
+    position: absolute;
+}
+#innoList li:nth-of-type(1) .imgWrap {
+    top: calc(50% - 350px);
+    left: 60px;
+    z-index: 5;
+}
+#innoList li:nth-of-type(2) .imgWrap {
+    top: calc(50% - 340px);
+    left: 40px;
+    z-index: 4;
+    filter: grayscale(100%);
+}
+#innoList li:nth-of-type(3) .imgWrap {
+    top: calc(50% - 330px);
+    left: 30px;
+    z-index: 3;
+    filter: grayscale(100%);
+}
+#innoList li:nth-of-type(4) .imgWrap {
+    top: calc(50% - 320px);
+    left: 20px;
+    z-index: 2;
+    filter: grayscale(100%);
+}
+#innoList li:nth-of-type(5) .imgWrap {
+    top: calc(50% - 310px);
+    left: 10px;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+/* 어사이드 */
+#aside {
+    position: fixed;
+    top: 30%;
+    right: 1%;
+    z-index: 99;
+}
+#conAside {
+    width: 90px;
+    height: 320px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 5px 5px #999;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#conAside a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.youtube:nth-of-type(1) {
+    background: url(../images/youtube-banner_03.png) no-repeat center / contain;
+}
+.youtube:nth-of-type(2) {
+    background: url(../images/channels4_profile.jpg) no-repeat center / contain;
+}
+.youtube:nth-of-type(3) {
+    background: url(../images/channels4_profile2.jpg) no-repeat center / contain;
+}
+#btnAside {
+    width: 90px;
+    display: flex;
+    position: fixed;
+    top: 68%;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+#btnAside a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 5px 5px #999;
+    border-radius: 50px;
+}
+#btnAside a.back {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #fff url(../images/back-arrow.png) no-repeat center / 30px;
+}
+#btnAside a.front {
+    display: none;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #fff url(../images/front-arrow.png) no-repeat center / 30px;
+}
+
+/* 푸터 */
+#footer {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 400px;
+    border-top: 1px solid #000;
+}
+.footer {
+    display: flex;
+}
+.link {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.link > li {
+    margin-right: 50px;
+}
+.link > li a {
+    display: block;
+    font-size: 70px;
+    font-weight: 300;
+    background: url(../images/up-right-arrow.png) no-repeat right / 70px;
+}
+.link > li:nth-child(1) a {
+    width: 280px;
+}
+.link > li:nth-child(2) a {
+    width: 200px;
+}
+.link > li:nth-child(3) a {
+    width: 350px;
+}
+.link > li:nth-child(4) a {
+    width: 300px;
+}
+#underWrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0 0 50px 50px;
+}
+.footer.under > li {
+    display: block;
+    margin-right: 5px;
+}
+.footer.under > li a::after {
+    content: '|';
+    font-size: 14px;
+    margin: 0 5px;
+    display: inline-block;
+}
+.footer.under > li:last-child a::after {
+    content: ''
+}
+p.under {
+    color: #888;
+}
+small.under {
+    font-family: 'GmarketSansMedium';
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
