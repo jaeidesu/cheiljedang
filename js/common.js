@@ -13,14 +13,12 @@ function scrolling(e) {
         if (index == 0) return;
         index--;
     }
-    console.log(index);
     $("html, body").not(":animated").animate({ scrollTop: $(".content:eq("+index+")").position().top }, 1000, 'easeOutQuart', function() {
         state = 1;
     })
 }
 document.addEventListener('wheel', function(e) {
     scrolling(e)
-    console.log(e)
 })
 window.addEventListener('load', function(e){
     this.setTimeout(function() {
@@ -89,7 +87,7 @@ function autoSlide(state) {
 
 let timer = setInterval(function() {
    autoSlide();
-}, 4000)
+}, 3000)
 
 $('.prevSl')
 .click(function(e) {
@@ -109,7 +107,6 @@ $('.nextSl')
 
 // CJ더마켓, NtN, NtT 카드 슬라이드
 let cardLength = $('.card').length;
-console.log(cardLength)
 
 function slCard1() {
     num++;
@@ -279,7 +276,6 @@ $('.imgWrap').click(function(e) {
     // 우측 내용(li) 변경
     
     let innoClass = $('.imgWrap').attr('src').substr(9, 5);
-    console.log(innoClass)
     $('.inno').css({
         opacity: 0,
         transition: '0.5s ease'

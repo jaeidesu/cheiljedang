@@ -1,0 +1,143 @@
+@charset "urf-8";
+@import url(./common.css);
+
+@media screen and (max-width: 500px) {
+    
+    /* 헤더 */
+    #headerWrap {
+        box-shadow: 0 0 0 0;
+    }
+    #header {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #header h1 {
+        position: static;
+        width: 130px;
+        height: auto;
+        background: url(../images/top_logo_light.png) no-repeat center / contain;
+        margin-left: 20px;
+    }
+
+    /* GNB */
+    #gnb {
+        display: none;
+    }
+    #gnbList {}
+    #gnbList > li {}
+    #gnbList > li > a {}
+
+    .lnb {}
+    .lnb > li {}
+    .lnb > li:hover a {}
+    .lnb > li > a {}
+
+    .snb {}
+    .snb > li > a {}
+
+    .gnbView {
+        display: block;
+        position: relative;
+        background: url(../images/burger.png) no-repeat center / contain;
+        width: 30px;
+        height: auto;
+        margin-right: 20px;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    /* 브랜드 슬로건 */
+
+    #brands {
+        width: 100%;
+        height: 934px;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    #slBrands {
+        width: 400%;
+        height: 580px;
+    }
+    .slogan {
+        width: 100%;
+        height: 300px;
+        margin: 200px auto;
+    }
+    .slogan2 {
+        margin: 140px auto;
+    }
+    .slogan > div > img {
+        width: 70%;
+    }
+    .slogan2 > div > img {
+        width: 50%;
+    }
+    .slogan > div > a {
+        width: 130px;
+        margin-top: 100px;
+        font-size: 16px;
+        font-weight: 100;
+        letter-spacing: -2px;
+        background: url(../images/redAdvance.png) no-repeat center right / 20px;
+    }
+    .slogan:not(.slogan1) > div > a {
+        width: 120px;
+    }
+    #brands > a {
+        display: none;
+    } 
+    #mobileAd {
+        display: block;
+        width: 100%;
+        height: 354px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        background: #ddd;
+    }
+    #mobileAd > a {
+        width: 280px;
+        margin-top: 20px;
+        font-size: 18px;
+        letter-spacing: -1px;
+        text-align: center;
+        background: url(../images/Cursor.png) no-repeat bottom right / 16px;
+    }
+    #conAsideM {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .youtubeM {
+        display: block;
+        width: 80px;
+        height: 80px;
+        border-radius: 100px;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .youtubeM:nth-of-type(1) {
+        background: url(../images/youtube-banner_03.png) no-repeat center / cover;
+    }
+    .youtubeM:nth-of-type(2) {
+        background: url(../images/channels4_profile.jpg) no-repeat center / cover;
+    }
+    .youtubeM:nth-of-type(3) {
+        background: url(../images/channels4_profile2.jpg) no-repeat center / cover;
+    }
+
+    #btnAsideM {
+        display: none;
+    }
+    /* 어사이드 */
+    #aside {
+        display: none;
+    }
+}
