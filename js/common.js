@@ -60,46 +60,49 @@ $('.lnb').children('li')
 
 
 // 브랜드 슬라이드
+let liWidth = $('#slBrands > li').width();
 let liLength = $('#slBrands > li').length;
+let lastPos = liWidth * (liLength - 1);
 let num = 0;
 
-function slider() {
-    num++;
-    if (num === liLength) {
-        num = 0;
-        $('#slBrands')
-            .append($('#slBrands li:eq(0)'))
-            .css({
-                marginLeft: -(liLength - 1) * 100 + "%"
-            });
-    } else {
-        $('#slBrands')
-            .animate({
-                marginLeft: '-=100%'
-            });
+
+function autoSlide(state) {
+    // 좌측버튼
+    if (state) {
+        if ( $('#slBrands').css('marginLeft') == "0px" ) {
+            $('#slBrands:not(:animated)').animate({ marginLeft: -lastPos })
+        }
+        else {
+            $('#slBrands:not(:animated)').animate({ marginLeft: `+=${liWidth}px` })
+        }
+    }
+    // 우측버튼
+    else {
+        if ( $('#slBrands').css('marginLeft') == `-${lastPos}px` ) {
+            $('#slBrands:not(:animated)').animate({ marginLeft: 0 })
+        }
+        else {
+            $('#slBrands:not(:animated)').animate({ marginLeft: `-=${liWidth}px` })
+        }
     }
 }
 
-function slider2() {
-    if (num === 0) return;
-    num--;
-    $('#slBrands')
-        .animate({
-            marginLeft: '+=100%'
-        });
-}
+let timer = setInterval(function() {
+   autoSlide();
+}, 4000)
 
-
-$('.nextSl').click(function(e) {
+$('.prevSl')
+.click(function(e) {
     e.preventDefault();
-    if (num === liLength - 1) return;
-    slider();
-});
-
-$('.prevSl').click(function(e) {
+    clearInterval(timer);
+    autoSlide(1);
+})
+$('.nextSl')
+.click(function(e) {
     e.preventDefault();
-    slider2();
-});
+    clearInterval(timer);
+    autoSlide();
+})
 
 
 
