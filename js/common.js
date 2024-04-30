@@ -1,7 +1,19 @@
-// 휠이벤트
 let conLength = $('.content').length;
 let index = 0;
 let state = 1;
+let sideIndex;
+
+
+// 앵커 섹션 이동
+$("#sideBtn a").on('click', function(e) {
+    e.preventDefault();
+    sideIndex = $(this).index();
+    $("html, body").stop().animate({ scrollTop: $(".content:eq("+sideIndex+")").position().top })
+    $("#sideBtn a").removeClass('on');
+    $(this).addClass('on');
+})
+
+// 휠이벤트
 function scrolling(e) {
     if (e.wheelDelta < 0 && state == 1) {
         state = 0;
@@ -16,6 +28,8 @@ function scrolling(e) {
     $("html, body").not(":animated").animate({ scrollTop: $(".content:eq("+index+")").position().top }, 1000, 'easeOutQuart', function() {
         state = 1;
     })
+    $("#sideBtn a").removeClass('on');
+    $("#sideBtn a:eq("+ index +")").addClass('on');
 }
 document.addEventListener('wheel', function(e) {
     scrolling(e)
@@ -23,7 +37,7 @@ document.addEventListener('wheel', function(e) {
 window.addEventListener('load', function(e){
     this.setTimeout(function() {
         this.scrollTo(0, 0)
-    }, performance.now())
+    }, performance.now()-10)
 })
 
 
@@ -60,90 +74,80 @@ $('.lnb').children('li')
 // 브랜드 슬라이드
 let liWidth = $('#slBrands > li').width();
 let liLength = $('#slBrands > li').length;
-let lastPos = liWidth * (liLength - 1);
+// let lastPos = liWidth * (liLength - 1);
 let num = 0;
 
+$(window).on('resize', function() {
+    liWidth = $('#slBrands > li').width();
+})
 
-function autoSlide(state) {
-    // 좌측버튼
+function slBrands(state) { // parameter 매개변수
     if (state) {
-        if ( $('#slBrands').css('marginLeft') == "0px" ) {
-            $('#slBrands:not(:animated)').animate({ marginLeft: -lastPos })
-        }
-        else {
-            $('#slBrands:not(:animated)').animate({ marginLeft: `+=${liWidth}px` })
-        }
+        $("#slBrands:not(:animated)").animate({ marginLeft: -liWidth }, 1000, function() {
+            $("#slBrands").append($(".slogan:first"))
+                         .css({ marginLeft: 0 })
+        })
     }
-    // 우측버튼
     else {
-        if ( $('#slBrands').css('marginLeft') == `-${lastPos}px` ) {
-            $('#slBrands:not(:animated)').animate({ marginLeft: 0 })
-        }
-        else {
-            $('#slBrands:not(:animated)').animate({ marginLeft: `-=${liWidth}px` })
-        }
+        $("#slBrands:not(:animated)").prepend($(".slogan:last"))
+                                    .css({ marginLeft: -liWidth })
+                                    .animate({ marginLeft: 0 }, 1000)
     }
 }
 
 let timer = setInterval(function() {
-   autoSlide();
+    slBrands(1); // argument 전달인자
 }, 3000)
 
-$('.prevSl')
-.click(function(e) {
-    e.preventDefault();
+$('.nextSl').on('click', function() {
     clearInterval(timer);
-    autoSlide(1);
+    slBrands(1);
 })
-$('.nextSl')
-.click(function(e) {
-    e.preventDefault();
+
+$('.prevSl').on('click', function() {
     clearInterval(timer);
-    autoSlide();
+    slBrands();
 })
+
+
 
 
 
 
 // CJ더마켓, NtN, NtT 카드 슬라이드
 let cardLength = $('.card').length;
+let cardWidth = $('.card').width();
 
-function slCard1() {
+function slCard(a) {
+    if (a) {
     num++;
-    if (num === cardLength) {
-        num = 0;
-        $('#cardSlider')
-            .append($('#cardSlider li:eq(0)'))
-            .css({
-                marginLeft: -(cardLength - 1) * 1200 + "px"
-            });
-    } else {
+    $('#cardSlider')
+        .animate({
+            marginLeft: `-=${cardWidth}`
+        });
+    }
+    else {
+        num--;
         $('#cardSlider')
             .animate({
-                marginLeft: '-=1200px'
-            });
+                marginLeft: `+=${cardWidth}`
+        });
     }
-}
-
-function slCard2() {
-    if (num === 0) return;
-    num--;
-    $('#cardSlider')
-    .animate({
-        marginLeft: '+=1200px'
-    });
+    $(".card").not(`:eq($(num))`).animate({ opacity: 0.3 }, 200)
+    $(".card:eq("+num+")").animate({ opacity: 1 }, 200)
 }
 
 
 $('.nextBtn').click(function(e) {
     e.preventDefault();
     if (num === cardLength - 1) return;
-    slCard1();
+    slCard(1);
 });
 
 $('.prevBtn').click(function(e) {
     e.preventDefault();
-    slCard2();
+    if (num === 0) return;
+    slCard();
 });
 
 
@@ -165,11 +169,7 @@ $('.historyImg img:eq(2)').css({
     zIndex: -1
 })
 
-$('#hiRight li').css({
-    opacity: 0,
-    zIndex: 1,
-    transition: '0.5s ease'
-});
+
 $('#hiRight li:first-of-type').css({
     opacity: 1,
     zIndex: 1,
@@ -217,6 +217,7 @@ function yearFade(targetId) {
 }
 
 $('.historyA a').click(function(e) {
+    if ( $(window).innerWidth() > 500 ) {
     e.preventDefault();
     let targetId = $(this).attr('href');
     yearFade(targetId);
@@ -235,60 +236,43 @@ $('.historyA a').click(function(e) {
         backgroundColor: '#f20',
         transition: '0.5s ease'
     })
+    }
 });
 
 
 
+// CJ블라썸파크, CJ블라썸캠퍼스, 지속가능경영
 
-// 블로썸파크, 블로썸캠퍼스, 지속가능경영
+$('.inno')
+.click(function() {
 
-$('.imgWrap').css({
-    filter: 'grayscale(100%)'
-});
-$('.imgWrap:first-of-type').css({
-    filter: 'none'
-});
+    let innoNum = $(this).index() + 1;
+    let innoBg = `url(./images/inno${innoNum}.jpg)`;
 
-$('.inno').css({
-    opacity: 0,
-    transition: '0.5s ease'
-});
-$('.inno:first-of-type').css({
-    opacity: 1,
-    zIndex: 4,
-    transition: '0.5s ease'
-});
+    $('.inno').removeClass('on1')
+    $(this).addClass('on1')
+    $('.innoInner').removeClass('on2')
+    $(this).find('.innoInner').addClass('on2')
+    $('.inno').parent('#innoList').css({
+        'background': 'none',
+    })
+    $(this).parent('#innoList').css({
+        background: `${innoBg} no-repeat center / cover`
+    })                
+})
 
-// 이미지 클릭 이벤트
-$('.imgWrap').click(function(e) {
-    e.preventDefault();
-    let clickedIndex = $(this).index();
-    
-    $('.innoImg').append($(this).prev());
-    $(".innoImg").prepend($(this));
-    $('.imgWrap').css({
-        filter: `grayscale(100%)`
-    });
-    $(this).css({
-        filter: 'none'
-    });
 
-    // 우측 내용(li) 변경
-    
-    let innoClass = $('.imgWrap').attr('src').substr(9, 5);
-    $('.inno').css({
-        opacity: 0,
-        transition: '0.5s ease'
-    });
-    $(`.${innoClass}`).css({
-        opacity: 1,
-        transition: '0.5s ease'
-    });
-    
-});
 
 
 // 어사이드
+
+// 초기 상태
+$('#conAside')
+.delay(1000)
+.animate({
+    left: 110
+});
+
 let pos;
 $(window)
 .scroll(function() {

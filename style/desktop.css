@@ -14,7 +14,7 @@
     }
     #header {
         margin: 0 auto;
-        width: 1200px;
+        width: 62.5%;
         height: 80px;
         display: flex;
         justify-content: right;
@@ -22,8 +22,8 @@
     #header h1 {
         position: absolute;
         top: 0;
-        left: 20px;
-        width: 168px;
+        left: 1%;
+        width: 14%;
         height: 80px;
         text-indent: 100%;
         white-space: nowrap;
@@ -41,7 +41,6 @@
 /* GNB */
     #gnb {
         position: relative;
-        width: 778px;
         margin: 0 auto;
     }
     #gnbList {
@@ -52,15 +51,17 @@
     #gnbList > li {
         position: relative;
         text-transform: uppercase;
+        margin: 0 20px;
     }
     #gnbList > li > a {
+        display: block;
         font-family: 'GmarketSansMedium';
         /* display: block; */
         /* line-height: 80px; */
         font-weight: 300;
         line-height: 80px;
-        font-size: 14px;
-        padding: 10px 0;
+        font-size: 0.875rem;
+        padding: 0.5% 0;
     }
 
 /* LNB */
@@ -146,7 +147,7 @@
         font-family: 'GmarketSansMedium';
         width: 170px;
         margin-top: 70px; 
-        font-size: 18px;
+        font-size: 1.125rem;
         color: #f20;
         letter-spacing: -2px;
         background: url(../images/redAdvance.png) no-repeat right / contain;
@@ -173,6 +174,36 @@
         display: none;
     }
 
+
+/* 사이드 앵커 */
+    #sideBtn {
+        position: fixed;
+        left: 50px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+    }
+    #sideBtn a {
+        display: block;
+        background: #2222222c;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 20px 0;
+        white-space: nowrap;
+        text-indent: 100%;
+        overflow: hidden;
+    }
+    #sideBtn a.on {
+        width: 15px;
+        height: 15px;
+        background: #0000007a;
+    }
+
+
 /* CJ더마켓, Nature to Nature, Nature to Table */
     #cardSlide {
         position: relative;
@@ -182,20 +213,27 @@
         overflow: hidden;
     }
     #cardSlide > ul {
-        width: 1200px;
-        margin: 0 auto;
+        width: 195%;
         display: flex;
         padding: 80px 0 120px;
+        margin-left: 17.5%;
     }
     .card {
+        width: 65%;
         height: 700px;
     }
     .card > div {
         display: flex;
         margin: 0 105px;
-        width: 1000px;
         height: 700px;
         justify-content: space-between;
+    }
+    .card:not(:first-child) {
+        opacity: 0.3
+    }
+    .leftCard {
+        width: 500px;
+        height: 700px;
     }
     .leftCard:first-of-type {
         padding: 200px 0;
@@ -205,11 +243,11 @@
     }
     .leftCard > dl > dt {
         position: relative;
-        font-size: 74px;
+        font-size: 4.625rem;
         letter-spacing: -5px;
     }
     .leftCard > dl > dd {
-        font-size: 30px;
+        font-size: 1.875rem;
         letter-spacing: -3px;
         padding: 20px 0 60px;
         font-weight: 300;
@@ -250,11 +288,11 @@
         top: 40%;
     }
     .prevBtn {
-        left: 15%;
+        left: 5%;
         background: url(../images/prev.png) no-repeat center / contain;
     }
     .nextBtn {
-        right: 15%;
+        right: 5%;
         background: url(../images/next.png) no-repeat center / contain;
     }
 
@@ -264,7 +302,8 @@
         width: 100%;
         min-height: 100vh;
         display: flex;
-        flex-flow: column wrap;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
     #gbS {
         display: flex;
@@ -280,21 +319,21 @@
         padding-top: 84px;
         font-family: 'GmarketSansMedium';
         color: #f20;
-        font-size: 108px;
+        font-size: 6.75rem;
         font-weight: 100;
         letter-spacing: -5px;
         text-align: center;
         text-transform: uppercase;
     }
     #gbS > p {
-        font-size: 24px;
+        font-size: 1.5rem;
         letter-spacing: -1px;
         font-weight: 300;
     }
     #gbS > a {
         margin-top: 20px;
         display: block;
-        font-size: 14px;
+        font-size: 0.875rem;
         width: 160px;
         background: url(../images/Advance.png) no-repeat center right / contain;
     }
@@ -311,7 +350,7 @@
         position: absolute;
         top: 100px;
         right: 220px;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: 500;
         text-decoration: underline;
     }
@@ -393,10 +432,10 @@
     }
     #hiRight > ul > li > dl > dt {
         font-family: 'GmarketSansMedium';
-        font-size: 54px;
+        font-size: 2rem;
     }
     #hiRight > ul > li > dl > dd {
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 300;
         letter-spacing: -3px;
     }
@@ -405,103 +444,104 @@
         bottom: 170px;
         right: 215px;
         display: block;
-        font-size: 14px;
+        font-size: 0.875rem;
         width: 130px;
         background: url(../images/Advance.png) no-repeat center right / contain;
     }
 
 
 /* CJ블로썸파크, CJ블로썸캠퍼스, 지속가능경영 */
-    #innovation {
-        position: relative;
-        width: 1420px;
-        height: 100vh;
-        margin: 70px auto 0;
-    }
-    .imgWrap {
-        width: 550px;
-        height: 595px;
-        object-fit: cover;
-        object-position: center;
-        position: absolute;
-        cursor: pointer;
-        transition: 0.5s ease;
-    }
-    .imgWrap:nth-of-type(2):hover {
-        transform: translateZ(50px) scale(1.04);
-    }
-    .imgWrap:nth-of-type(1) {
-        top: calc(50% - 340px);
-        left: 80px; z-index: 5;
-    }
-    .imgWrap:nth-of-type(2) {
-        top: calc(50% - 290px);
-        left: 30px; z-index: 4;
-    }
-    .imgWrap:nth-of-type(3) {
-        top: calc(50% - 280px);
-        left: 20px; z-index: 3;
-    }
-    .imgWrap:nth-of-type(4) {
-        top: calc(50% - 270px);
-        left: 10px; z-index: 2;
-    }
-    .imgWrap:nth-of-type(5) {
-        object-position: right;
-        top: calc(50% - 260px);
-        left: 0; z-index: 1;
-    }
-    #innoList {
-        position: relative;
-        width: 800px;
-        float: right;
-    }
-    .inno {
-        position: absolute;
-        top: 100px;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        width: 800px;
-    }
-    .inno > p {
-        text-align: right;
-        font-size: 68px;
-        font-weight: 100;
-        letter-spacing: -6px;
-        margin-top: 100px;
-    }
-    .inno:nth-child(1) {
-        opacity: 1;
-    }
-    .inno:not(.inno:nth-child(1)) {
-        opacity: 0;
-    }
+#innovation {
+    position: relative;
+    height: 100vh;
+    margin: 70 auto 0;
+}
 
-    .innoBtn {
-        display: flex;
-        margin-top: 40px;
-    }
-    .innoBtn a {
-        display: block;
-        width: 130px;
-        margin: 0 20px;
-        text-transform: uppercase;
-    }
-    .innoBtn:not(#innoList > li:nth-of-type(1) div.innoBtn, #innoList > li:nth-of-type(2) div.innoBtn) a:first-child {
-        width: 160px;
-    }
-    .innoBtn:not(#innoList > li:nth-of-type(1) div.innoBtn, #innoList > li:nth-of-type(2) div.innoBtn) a:last-child {
-        width: 150px;
-    }
-    .innoBtn a:first-child {
-        background: url(../images/Advance.png) no-repeat right / contain;
-    }
-    .innoBtn a:last-child {
-        color: #f20;
-        background: url(../images/redAdvance.png) no-repeat right / contain;
-    }
+#innoList {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: url(../images/inno1.jpg) no-repeat center / cover;
+}
+.inno {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 12.5%;
+    border-right: 1px solid rgba(255, 255, 255, 0.7);
+    opacity: 1;
+    transition: 1s width, 1s opacity, 1s background;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.inno.on1 {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+.inno:hover { background-color: rgba(0, 0, 0, 0.3); }
+
+.innoInner {
+    opacity: 0;
+    width: 100vw;
+}
+.innoInner.on2 {
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 200px;
+    left: 150px;
+    transition: 1s opacity;
+}
+.innoInner.on2 > p {
+    font-size: 70px;
+    letter-spacing: -9px;
+    text-align: left;
+    color: #fff;
+    font-weight: 100;
+    letter-spacing: -9px;
+}
+.innoBtn {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+.innoBtn > a {
+    display: block;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    background: url(../images/CircledUpRight.png) no-repeat center right / 20px;
+}
+.inno2 > .innoInner > .innoBtn {
+    width: 315px;
+}
+.inno2 > .innoInner > .innoBtn > a:last-child {
+    width: 145px;
+}
+.inno3 > .innoInner > .innoBtn,
+.inno5 > .innoInner > .innoBtn {
+    width: 330px;
+}
+.inno4 > .innoInner > .innoBtn {
+    width: 355px;
+}
+.inno3 > .innoInner > .innoBtn > a:first-child,
+.inno4 > .innoInner > .innoBtn > a:first-child,
+.inno5 > .innoInner > .innoBtn > a:first-child {
+    width: 160px;
+}
+.inno4 > .innoInner > .innoBtn > a:last-child {
+    width: 155px;
+}
 
 
 /* 어사이드 */
@@ -577,27 +617,26 @@
     }
 /* 푸터 */
     #footer {
-        position: relative;
         display: flex;
         flex-flow: column wrap;
         width: 100%;
         height: 500px;
         border-top: 1px solid #000;
+        justify-content: right;
+        align-items: end;
     }
     .footer {
         display: flex;
     }
     .link {
-        position: absolute;
-        top: 50px;
-        right: 0;
+        margin: 50px 0 150px 0;
     }
     .link > li {
         margin-right: 50px;
     }
     .link > li a {
         display: block;
-        font-size: 70px;
+        font-size: 4.375rem;
         font-weight: 300;
         background: url(../images/up-right-arrow.png) no-repeat right / 70px;
     }
@@ -615,9 +654,6 @@
     }
     #underWrap {
         width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
         padding: 0 50px 50px 50px;
         display: flex;
         justify-content: space-between;
@@ -629,7 +665,7 @@
     }
     .footer.under > li a::after {
         content: '|';
-        font-size: 14px;
+        font-size: 0.875rem;
         margin: 0 5px;
         display: inline-block;
     }

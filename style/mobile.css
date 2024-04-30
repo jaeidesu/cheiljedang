@@ -6,6 +6,7 @@
     /* 헤더 */
     #headerWrap {
         box-shadow: 0 0 0 0;
+        border-bottom: 0px;
     }
     #header {
         width: 100%;
@@ -50,6 +51,10 @@
         overflow: hidden;
     }
 
+    /* sideBtn */
+    #sideBtn {
+        display: none;
+    }
     /* 브랜드 슬로건 */
 
     #brands {
@@ -97,11 +102,11 @@
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        background: #ddd;
+        border-top: 1px solid #f20;
     }
     #mobileAd > a {
         width: 280px;
-        margin-top: 20px;
+        margin-top: 50px;
         font-size: 18px;
         letter-spacing: -1px;
         text-align: center;
@@ -109,7 +114,7 @@
     }
     #conAsideM {
         width: 100%;
-        margin-top: 30px;
+        margin-top: 40px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -132,12 +137,277 @@
     .youtubeM:nth-of-type(3) {
         background: url(../images/channels4_profile2.jpg) no-repeat center / cover;
     }
-
     #btnAsideM {
         display: none;
     }
+
+    /* CJ더마켓, NtN, NtT */
+    #cardSlide {
+        overflow: visible;
+    }
+    #cardSlide > ul {
+        width: 300%;
+        padding: 0;
+        margin-left: 0;
+    }
+    .card {
+        width: 100%;
+    }
+    .card > div {
+        width: 100%;
+        margin: 0;
+        position: relative;
+    }
+    .leftCard {
+        position: absolute;
+        top: -20px;
+        left: 10%;
+        z-index: 1;
+    }
+    .leftCard > dl {
+        color: #fff;
+    }
+    .leftCard > dl > dt {
+        font-size: 4.3rem;
+    }
+    .leftCard > dl > dd {
+        font-size: 1.65rem;
+        margin-top: 20px;
+    }
+    .leftCard > a {
+        color: #fff;
+        background: #f20;
+        border-radius: 30px;
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+        font-weight: 200;
+        margin-top: -40px;
+    }
+    span:last-of-type {
+        position: absolute;
+        width: 300px;
+        top: 80px;
+        left: 10%;
+    }
+    .rightCard {
+        width: 90%;
+        position: absolute;
+        top: 50px;
+        left: 5%;
+        z-index: 0;
+    }    
+    #cardSlide > a {
+        position: absolute;
+        top: 65%;
+    }
+    .prevBtn {
+        left: 10%;
+        background: url(../images/Arrowcircleleft.png) no-repeat center / contain;
+    }
+    .nextBtn {
+        right: 10%;
+        background: url(../images/Arrowcircleright.png) no-repeat center / contain;
+    }
+
+    /* 글로벌현황, 연혁 */
+    #aboutUs {
+        margin-top: 0;
+        width: 100%;
+        height: 100vh;
+        flex-wrap: nowrap;
+    }
+    #gbS {
+        width: 100%;
+        height: 40vh;
+    }
+    #gbS > h3 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -2px;
+    }
+    #gbS > p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+    #gbS > a {
+        font-weight: 400;
+    }
+    #history {
+        width: 100%;
+        height: 50vh;
+
+    }
+    #history > h3 {
+        top: 10px;
+        right: 120px;
+    }
+    #hiLeft {
+        width: 50%;
+        height: auto;
+        display: contents;
+    }
+    .historyImg {
+        position: relative;
+        width: 50%;
+        height: 60vh;
+    }
+    .historyImg img {
+        position: absolute;
+        width: 130px;
+        height: 130px;
+    }
+    .historyImg img:first-of-type {
+        top: 40px;
+        left: 50px;
+    }
+    .historyImg img:nth-of-type(2) {
+        top: 180px;
+        left: 50px;
+    }
+    .historyImg img:last-of-type {
+        top: 320px;
+        left: 50px;
+    }
+    .historyA {
+        display: none;
+    }
+    #hiRight {
+        width: 50%;
+        height: 60vh;
+    }
+    #hiRight > ul {
+        padding: 0;
+        position: static;
+    }
+    #hiRight > ul > li {
+        width: 50%;
+        flex-direction: column;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 60%;
+    }
+    #hiRight > ul > li:nth-child(1) {
+        top: 40px;
+    }
+    #hiRight > ul > li:nth-child(2) {
+        top: 180px;
+    }
+    #hiRight > ul > li:nth-child(3) {
+        top: 320px;
+    }
+    #hiRight > ul > li > dl > dt {
+        font-size: 1.75rem;
+    }
+    #hiRight > ul > li > dl > dd {
+        font-size: 1.1rem;
+    }
+    #hiRight > a {
+        bottom: 100px;
+        right: 115px;
+    }
+
+    #hiRight li { opacity: 1 }
+
+    /* CJ블로썸파크, CJ블로썸캠퍼스, 지속가능경영 */
+    #innovation {
+        width: 100%;
+        height: 70vh;
+        margin: 15vh 0 10vh; 
+    }
+    #innoList {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .inno {
+        width: 100%;
+        height: 12.5%;
+        border-right: 0px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    .inno.on1 {
+        width: 100%;
+        height: 50%;
+    }
+    .innoInner {
+        width: 100%;
+    }
+    .innoInner.on2 {
+        top: 30px;
+        left: 10%;
+    }
+    .innoInner.on2 > p {
+        font-size: 30px;
+        letter-spacing: -3px;
+    }
+    .innoBtn {
+        flex-flow: column wrap;
+        /* justify-content: ; */
+        align-items: flex-start;
+    }
+    .innoBtn > a {
+        height: 20px;
+        line-height: 20px;
+    }
+
     /* 어사이드 */
     #aside {
+        display: none;
+    }
+
+    /* 푸터 */
+    #footer {
+        width: 100%;
+        height: 250px;
+        flex-flow: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px 20px 0 20px;
+    }
+    .footer {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .link {
+        width: 60px;
+        height: 100px;
+        margin: 0px;
+        margin-bottom: 30px;
+    }
+    .link > li {
+    }
+    .link > li a {
+        font-size: 2rem;
+        background-size: 34px;
+    }
+    .link > li:nth-child(1) a {
+        width: 140px;
+    }
+    .link > li:nth-child(2) a {
+        width: 100px;
+    }
+    .link > li:nth-child(3) a {
+        width: 175px;
+    }
+    .link > li:nth-child(4) a {
+        width: 150px;
+    }
+    #underWrap {
+        width: 100%;
+        flex-direction: column;
+        padding: 0px;
+    }
+    .footer.under {
+        display: none;
+    }
+    .under {
+        font-size: 0.6rem;
+    }
+    #unRight {
         display: none;
     }
 }
